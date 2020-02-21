@@ -76,27 +76,19 @@ def month_int(month_name):
 
 
 def seconds_concise(duration):
-    """ returns amount of seconds as appropriate; year, week, day, hour, minues """
+    """ returns amount of seconds as appropriate; year, week, day, hour, minutes """
 
     seconds_dict = {'year' : 31449600,
                     'week' : 604800,
                     'day' : 86400,
                     'hour' : 3600}
-    if duration >= seconds_dict['year']:
-        concise = '%.1f'%(duration / seconds_dict['year'])
-        output = str(concise) + " years"
-    elif duration >= seconds_dict['week']:
-        concise = '%.1f'%(duration / seconds_dict['week'])
-        output = str(concise) + " weeks"
-    elif duration >= seconds_dict['day']:
-        concise = '%.1f'%(duration / seconds_dict['day'])
-        output = str(concise) + " days"
-    elif duration >= seconds_dict['hour']:
-        concise = '%.1f'%(duration / seconds_dict['hour'])
-        output = str(concise) + " hours"
-    else:  
-        concise = '%.1f'%(duration / 60)
-        output = str(concise) + " minutes"
+    #if duration is greater than seconds_dict item then use that item
+    for key, value in seconds_dict.items():
+        if duration >= value:
+            output = '%.1f'%(duration / value) + ' ' + key + '(s)'
+            break
+        else:
+            output = '%.1f'%(duration / 60) + ' minute(s)'
     return output
 
 
