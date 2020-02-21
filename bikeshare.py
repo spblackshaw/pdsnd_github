@@ -83,7 +83,7 @@ def time_stats(df):
     else:
         popular_day_of_week = df['day_of_week'].mode()[0]                                   
     # Display the most common start hour
-    popular_hour = df['hour'].mode()[0]
+    popular_hour = lf.hour_convert(df['hour'].mode()[0])
     print(f'Most Frequent Month: {popular_month}\nMost Frequent Day of Week: '\
         f'{popular_day_of_week}\nMost Frequent Start Hour: {popular_hour}\n')    
     print(f'\nThis took {(time.time() - start_time):.2f} seconds.')                   
