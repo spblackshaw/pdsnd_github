@@ -92,6 +92,17 @@ def seconds_concise(duration):
     return output
 
 
+def hour_convert(hour):
+    """ adds conversion for 24 hour clock for the uninitiated """
+
+    if hour > 12:
+        hour_adj = hour - 12
+        output = str(hour) + ' (' + str(hour_adj) + 'pm)'
+    else:
+        output = str(hour)     
+    return output
+
+
 def main():
 
     df = pd.read_csv('chicago.csv')
