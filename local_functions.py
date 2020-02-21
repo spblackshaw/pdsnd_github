@@ -9,7 +9,7 @@ select_dict = {'City':['washington', 'new york city', 'chicago'],
 def view_data(pd_frame):
     """
     Takes a pandas dataframe as argument and asks user whether they want to view the data.
-    5 rows are shown each time the user presses 'Y', and exits on any other key press.
+    5 rows are shown each time the user presses 'Y'; function exits on any other key press.
 
     Args:
         (str) pd_frame - name of pandas data frame
@@ -26,8 +26,14 @@ def view_data(pd_frame):
 
 
 def input_list(ulist):
-    """ Cleans up a list of input selection options
-        Removes 'All' option, converts list to string, adds 'or' and capitalises """
+    """ Cleans a list of input selection options for presentation to user:
+
+        Remove 'All' option
+        Converts list to string
+        Adds 'or' for grammatical sense
+        Use Proper Case on items
+    """
+
     filter_all = [x for x in ulist if x != 'all']
     list_str = ', '.join(filter_all).title()
     output = ' or '.join(list_str.rsplit(', ', 1))
