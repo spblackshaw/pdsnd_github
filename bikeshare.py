@@ -19,7 +19,7 @@ def get_filters():
     """
     print("\nHello! Let\'s explore some US bikeshare data!\n")
          
-    # Get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # Get user input for city (chicago, new york city, washington).
     city = lf.user_input('City',lf.select_dict)
     # Get user input for month (all, january, february, ... , june)
     month = lf.user_input('Month',lf.select_dict, 'All')
@@ -143,7 +143,6 @@ def user_stats(df):
     print(f'User Type Counts:\nCustomer Count = {customer_count}, Subscriber Count = {subscriber_count}')
     
     # Display counts of gender
-    #Washington data doesn't have gender or birth year columns
     if 'Gender' in df.columns:
         female_count = df[df['Gender'] == 'Female'].shape[0]
         male_count = df[df['Gender'] == 'Male'].shape[0]
